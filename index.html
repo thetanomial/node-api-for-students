@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+   <div class="posts-container" id="posts-container">
+       <!-- Posts will be dynamically rendered here -->
+   </div>
+
+   <script>
+       // Fetch the posts data from the API and render them
+       fetch('http://localhost:3000/api/posts')
+           .then(response => response.json())
+           .then(posts => {
+               const postsContainer = document.getElementById('posts-container');
+               postsContainer.innerHTML = ''; // Clear any existing content
+
+               // Iterate through each post and dynamically add to the DOM
+               posts.forEach(post => {
+                   const postHTML = `
+                       <div class="card-container">
+                           <p class="category">${post.category}</p>
+                           <p class="author">${post.author}</p>
+                           <div>
+                               <p> <i class="fas fa-thumbs-up"></i> <span>${post.likes}</span></p>
+                               <p> <i class="fas fa-comment"></i> <span>${post.comments}</span></p>
+                               <p><i class="fas fa-share"></i> <span>${post.shares}</span></p>
+                           </div>
+                           <div>
+                               <h3>${post.title}</h3>
+                               <p>${post.description}</p>
+                           </div>
+                           <p>${post.content}</p>
+                       </div>
+                   `;
+                   // Append the post HTML to the container
+                   postsContainer.innerHTML += postHTML;
+               });
+           })
+           .catch(error => {
+               console.error('Error fetching posts:', error);
+           });
+   </script>
+</body>
+</html>
