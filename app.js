@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const cors = require('cors')
+const cors = require('cors');
+const { books } = require('./books');
 app.use(cors())
 
 // Array of posts
@@ -43,6 +44,10 @@ app.get('/api/posts', (req, res) => {
   res.json(posts);
 });
 
+
+app.get("/api/books",(req,res)=>{
+  res.json(books)
+})
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
