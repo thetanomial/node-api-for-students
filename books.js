@@ -8,5 +8,9 @@ export const books = [
         id : 2,
         title : "whatever",
         coverImage : null
+    },
+    {
+        id : 3,
+        title : "yet to decide"
     }
 ]
