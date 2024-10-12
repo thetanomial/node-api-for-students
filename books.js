@@ -14,5 +14,11 @@ export const books = [
 
         title : "Lightweight Django",
         coverImage : "https://m.media-amazon.com/images/I/71rbOwiFOyL._AC_UY436_QL65_.jpg"
+    },
+    {
+        id : 4,
+
+        title : "Python for Dummies",
+        coverImage : "https://m.media-amazon.com/images/I/71H0XTjr7dL._AC_UY436_QL65_.jpg"
     }
 ]
