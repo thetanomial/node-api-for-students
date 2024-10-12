@@ -6,11 +6,13 @@ export const books = [
     },
     {
         id : 2,
-        title : "whatever",
-        coverImage : null
+        title : "learn python the hard way",
+        coverImage : "https://m.media-amazon.com/images/I/81cScQew6NL._AC_UY436_QL65_.jpg"
     },
     {
         id : 3,
-        title : "yet to decide"
+
+        title : "Lightweight Django",
+        coverImage : "https://m.media-amazon.com/images/I/71rbOwiFOyL._AC_UY436_QL65_.jpg"
     }
 ]
